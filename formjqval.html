@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+<meta charset="UTF-8">
+    <title> Registration Form </title>
+    <link rel="stylesheet" href= "style.css">
+	
+	<link rel="stylesheet" href= "https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.0/css/select2.min.css">
+
+	<script src=
+"https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js">
+	</script>
+
+	<script src=
+"https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.0/js/select2.min.js">
+	</script>
+	
+	<script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
+	
+
+</head>
+
+<body>
+	 <script>
+	$(document).ready(function(){
+		$("#register").validate({
+		rules:{
+				fullName:{
+					required : true,
+					minlength : 3
+				},
+				username:{
+				    required : true,
+					minlength : 8
+				},
+				email:{
+					required : true,
+					email:true
+				},
+				phone:{
+				    required : true,
+					minlength : 10,
+					number : true
+				},	
+				password:{
+				    required: true,
+					minlength : 8
+				},
+				 gender:{ 
+				 required:true,
+				 gender: true				 
+			    }
+				},
+				messages:{
+				fullName:{
+					required:"please enter your full name",
+					minlength:"Should have at least 3 characters"
+				},
+				username:{
+					required:"please enter your username",
+					minlength:"Should have at least 8 characters"
+				},
+				
+				phone:{
+					required : "please enter your contact",
+					number : "please enter your contact in number",
+					min : "Contact number must be in 10 digits"
+				},
+				email:{
+					required : "please enter your email",
+					email:"Req* as per format:abc@xyz.com"
+				},
+				gender:{
+					required : "please select your gender"
+			    },
+				password:{
+					required:"please enter your password",
+					minlength:"Should have at least 8 characters"
+				}
+				},
+				submitHandler: function(form) {
+				form.submit();
+			}
+		});
+		$('#mysbutton').dblclick(function() { 
+     var selected = $('#list').val(); 
+	 alert(selected); 
+	 })
+	});
+	
+	
+	</script>
+	
+<body>
+	<div class="container-fluid h-300 bg-light">
+		<div class="row justify-content-center align-items-center">
+
+  <div class="container">
+    <div class="title">Registration</div>
+    <div class="content">
+      <form id="register" >
+        <div class="user-details">
+          <div class="input-box">
+            <span for="fullName" class="details">Full Name</span>
+            <input id="fullName" name="fullName" placeholder="Enter your name" >
+          </div>
+          <div class="input-box">
+            <span for="username" class="details">Username</span>
+            <input  id="username" name="username" placeholder="Enter your username" >
+          </div>
+          <div class="input-box">
+            <span for="email" class="details">Email</span>
+            <input  id="email" name="email" placeholder="Enter your email" >
+          </div>
+          <div class="input-box">
+            <span for="phone" class="details">Phone Number</span>
+            <input  id="phone" name="phone" placeholder="Enter your number" >
+          </div>
+          <div class="input-box">
+            <span for="password" class="details">Password</span>
+            <input  id = "password" name = "password" placeholder="Enter your password" >
+          </div>
+        </div>
+        <div class="gender-details" >
+          <input type="radio" name="gender" id="dot-1" >
+          <input type="radio" name="gender" id="dot-2">
+          <input type="radio" name="gender" id="dot-3">
+          <span for="gender" class="gender-title">Gender</span>
+          <div class="category">
+            <label for="dot-1">
+            <span class="dot one"></span>
+            <span class="gender">Male</span>
+          </label>
+          <label for="dot-2">
+            <span class="dot two"></span>
+            <span class="gender">Female</span>
+          </label>
+          <label for="dot-3">
+            <span class="dot three"></span>
+            <span class="gender">Others</span>
+            </label>
+			<span id = "radio_error"></span>
+          </div>
+        </div>
+		<div class="input-box">
+          <p>Preferred location</p>
+          <select id="list" multiple="multiple">
+            <option selected value="" disabled selected></option>
+            <option value="Chennai" >Chennai</option>
+            <option value="Bangalore">Bangalore</option>
+            <option value="Mumbai">Mumbai</option>
+            <option value="Delhi">Delhi</option>
+          </select>
+        </div>
+		<div class="button">
+          <input type="submit" value="Register" id="mysbutton" >
+        </div>
+      </form>
+    </div>
+  </div>
+
+</body>
+</html>
