@@ -1,0 +1,51 @@
+<html>
+    <head>
+      <style>  
+.error {
+    color: #E00000;
+     }
+    </style>
+        </head>
+    <form name="myForm" id="myForm" method="post" onsubmit="return validateForm();">
+    First Name: <input type="text" id="name" /> <br />
+    <span id="nameErrMsg" class="error"></span> <br />
+    <!-- ... all your other stuff ... -->
+</form>
+  <p>
+    1.word should be atleast 5 letter<br>
+    2.No space should be encountered<br>
+    3.No numbers and special characters allowed<br>
+  </p>
+  <button id="validateTestButton" value="Validate now" onclick="validateForm();">Validate now</button>
+
+<script>
+validateForm = function () {
+    return checkName();
+}
+
+function checkName() {
+    var x = document.myForm;
+    var input = x.name.value;
+    var errMsgHolder = document.getElementById('nameErrMsg');
+    if (input.length < 5) {
+        errMsgHolder.innerHTML =
+            'Please enter a name with at least 5 letters';
+        return false;
+    } else if (!(/^\S{3,}$/.test(input))) {
+        errMsgHolder.innerHTML =
+            'Name cannot contain whitespace';
+        return false;
+    }else if(!(/^[a-zA-Z]+$/.test(input)))
+    {
+        errMsgHolder.innerHTML=
+                'Only alphabets allowed'
+    }
+    else {
+        errMsgHolder.innerHTML = '';
+        return undefined;
+    }       
+
+}
+</script>
+
+</html>

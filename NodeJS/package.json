@@ -1,0 +1,24 @@
+{
+  "name": "nodeapps",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "dependencies": {
+    "axios": "^0.21.4",
+    "command-line-args": "^5.2.0",
+    "cookie": "^0.4.1",
+    "cookie-parser": "^1.4.5",
+    "express": "^4.17.1",
+    "joi": "^17.4.2",
+    "jsonwebtoken": "^8.5.1",
+    "mysql": "^2.18.1",
+    "regex": "^0.1.1",
+    "request": "^2.88.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "node main.js"
+  },
+  "author": "",
+  "license": "ISC"
+}
